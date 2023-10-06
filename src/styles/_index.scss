@@ -1,3 +1,6 @@
+@import "./variables";
+@import "./components/header";
+
 img {
   display: block;
   max-width: 100%;
@@ -26,6 +29,8 @@ p {
 
 body {
   margin: 0;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
 }
 
 html {
@@ -46,4 +51,25 @@ ul {
 button,
 a {
   cursor: pointer;
+}
+
+.container__app {
+  padding-inline: 20px;
+}
+@media screen and (min-width: 1920px) {
+  body {
+    max-width: 1440px;
+  }
+}
+
+@media screen and (min-width: $breakpoint-lg) {
+  .container__app {
+    padding-inline: 50px;
+  }
+}
+
+@media screen and (min-width: $breakpoint-xl) {
+  .container__app {
+    padding-inline: 100px;
+  }
 }
