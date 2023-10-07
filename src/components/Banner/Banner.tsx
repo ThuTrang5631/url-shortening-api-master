@@ -1,8 +1,9 @@
 import illustrationWorking from "../../assets/illustration-working.svg";
+import Button from "../Button";
 
 const Banner = () => {
   return (
-    <section className="banner min-[768px]:flex min-[768px]:items-center">
+    <section className="banner min-[768px]:flex min-[768px]:items-center mb-[40px]">
       <div className="banner__image pl-[20px] mb-[40px] min-[768px]:order-2 min-[768px]:pl-[0]">
         <img src={illustrationWorking} alt="illustration working"></img>
       </div>
@@ -14,7 +15,7 @@ const Banner = () => {
           Build your brand’s recognition and get detailed insights on how your
           links are performing.
         </p>
-        <button className="banner__btn py-[10px] px-[20px]">Get Started</button>
+        <Button className="banner__btn">Get Started</Button>
       </div>
     </section>
   );

@@ -1,0 +1,28 @@
+.subbanner {
+  background-image: url("../../assets/bg-boost-mobile.svg");
+  background-color: $dark-violet;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+  .subbanner__title {
+    font-size: 30px;
+    font-weight: 700;
+    color: $white;
+  }
+}
+
+@media screen and (min-width: $breakpoint-md) {
+  .subbanner {
+    background-image: url("../../assets/bg-boost-desktop.svg");
+
+    .subbanner__title {
+      font-size: 40px;
+    }
+  }
+}

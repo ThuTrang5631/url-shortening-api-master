@@ -1,5 +1,6 @@
 import { useState } from "react";
 import logo from "../../assets/logo.svg";
+import Button from "../Button";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState<Boolean>(false);
@@ -34,7 +35,7 @@ const Header = () => {
                 <a href="#">Login</a>
               </li>
               <li className="header__contentdescitem">
-                <a href="#">SignUp</a>
+                <Button className="header__contentbtnsignup">Sign Up</Button>
               </li>
             </ul>
           </div>
@@ -55,9 +56,7 @@ const Header = () => {
             <a href="#">Login</a>
           </li>
           <li className="header__navitem p-[10px]">
-            <a href="#" className="header__btnsignup">
-              SignUp
-            </a>
+            <Button className="header__btnsignup">Sign Up</Button>
           </li>
         </ul>
       )}
