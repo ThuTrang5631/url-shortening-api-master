@@ -1,4 +1,5 @@
 .container__header {
+  position: relative;
   .header {
     justify-content: space-between;
 
@@ -11,6 +12,8 @@
 
   .header__nav {
     background-color: $dark-violet;
+    position: absolute;
+    width: 90%;
   }
 
   .header__navitem {

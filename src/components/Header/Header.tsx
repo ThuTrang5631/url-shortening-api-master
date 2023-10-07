@@ -5,8 +5,8 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState<Boolean>(false);
 
   return (
-    <div className="container__header container__app">
-      <header className="header flex py-[40px] items-center">
+    <div className="container__header pt-[40px] container__app mb-[10px] min-[768px]:mb-[50px]">
+      <header className="header flex items-center">
         <a href="#" className="header__company">
           <img src={logo} alt="logo"></img>
         </a>
@@ -41,7 +41,7 @@ const Header = () => {
         </div>
       </header>
       {isOpen && (
-        <ul className="header__nav rounded-[10px] text-center px-[20px] py-[10px]">
+        <ul className="header__nav rounded-[10px] text-center px-[20px] py-[10px] mt-[10px]">
           <li className="header__navitem py-[10px]">
             <a href="#">Features</a>
           </li>

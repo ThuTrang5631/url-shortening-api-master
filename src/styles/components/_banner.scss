@@ -1,0 +1,62 @@
+.banner {
+  .banner__title {
+    color: $very-dark-violet;
+    font-size: 30px;
+    font-weight: 700;
+  }
+
+  .banner__desc {
+    font-size: 18px;
+    color: $gray;
+  }
+
+  .banner__content {
+    text-align: center;
+  }
+
+  .banner__btn {
+    background-color: $cyan;
+    border-radius: 30px;
+    color: $white;
+    font-size: 18px;
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+}
+
+@media screen and (min-width: $breakpoint-md) {
+  .banner {
+    .banner__content {
+      width: 60%;
+      margin-right: 20px;
+    }
+
+    .banner__image {
+      width: 40%;
+      margin-bottom: 0;
+    }
+  }
+}
+
+@media screen and (min-width: $breakpoint-lg) {
+  .banner {
+    .banner__title {
+      font-size: 70px;
+    }
+
+    .banner__content {
+      text-align: left;
+    }
+
+    .banner__desc {
+      max-width: 500px;
+    }
+
+    .banner__image,
+    .banner__content {
+      width: 50%;
+    }
+  }
+}
