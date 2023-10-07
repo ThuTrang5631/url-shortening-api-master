@@ -2,6 +2,7 @@ import Header from "./components/Header";
 import Banner from "./components/Banner";
 import CardStatistic from "./components/CardStatistic";
 import SubBanner from "./components/SubBanner";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         {/* <CardStatistic /> */}
         <SubBanner />
       </main>
+      <Footer />
     </div>
   );
 }
