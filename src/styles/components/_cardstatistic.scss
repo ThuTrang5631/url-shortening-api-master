@@ -1,31 +1,109 @@
-.cardstatistic {
-  background-color: $white;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  max-width: 340px;
-  border-radius: 5px;
+.cardstatistic__wrap {
   position: relative;
+  margin-top: 90px;
 
-  .cardstatistic__title {
-    font-size: 20px;
-    color: $very-dark-violet;
-    font-weight: 700;
-  }
-
-  .cardstatistic__desc {
-    color: $grayish-violet;
-    font-size: 18px;
-  }
-
-  .cardstatic__img {
-    width: 80px;
-    height: 80px;
-    background-color: $dark-violet;
-    display: flex;
-    border-radius: 50%;
-    align-items: center;
-    justify-content: center;
+  &::after {
+    content: " ";
+    display: block;
+    width: 6px;
+    height: 50px;
+    background-color: $cyan;
     position: absolute;
-    top: -40px;
-    left: 110px;
+    left: 160px;
+  }
+
+  &:last-child {
+    &::after {
+      display: none;
+    }
+  }
+
+  .cardstatistic {
+    background-color: $white;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    max-width: 340px;
+    border-radius: 5px;
+    position: relative;
+    min-height: 290px;
+    height: 100%;
+
+    .cardstatistic__title {
+      font-size: 20px;
+      color: $very-dark-violet;
+      font-weight: 700;
+    }
+
+    .cardstatistic__desc {
+      color: $grayish-violet;
+      font-size: 18px;
+    }
+
+    .cardstatic__img {
+      width: 80px;
+      height: 80px;
+      background-color: $dark-violet;
+      display: flex;
+      border-radius: 50%;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: -40px;
+      left: 120px;
+    }
+  }
+}
+
+@media screen and (min-width: $breakpoint-md) {
+  .cardstatistic__wrap {
+    margin-right: 20px;
+    margin-top: 0;
+    margin-bottom: 90px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &::after {
+      display: none;
+    }
+  }
+}
+
+@media screen and (min-width: $breakpoint-lg) {
+  .cardstatistic__wrap {
+    margin-right: 40px;
+  }
+}
+
+@media screen and (min-width: $breakpoint-xl) {
+  .cardstatistic__wrap {
+    margin-bottom: 0;
+
+    &::after {
+      display: block;
+      width: 50px;
+      height: 10px;
+      right: 0;
+      left: unset;
+      right: -50px;
+      top: 150px;
+    }
+
+    &:nth-child(2) {
+      margin-top: 90px;
+    }
+
+    &:nth-child(3) {
+      margin-top: 170px;
+    }
+
+    .cardstatistic {
+      max-width: 400px;
+      text-align: left;
+
+      .cardstatic__img {
+        left: 30px;
+      }
+    }
   }
 }

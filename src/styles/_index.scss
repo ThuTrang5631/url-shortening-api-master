@@ -5,6 +5,8 @@
 @import "./components/subbanner";
 @import "./components/button";
 @import "./components/footer";
+@import "./components/searchsection";
+@import "./components/searchresultcard";
 
 img {
   display: block;
@@ -73,7 +75,7 @@ a {
   }
 }
 
-@media screen and (min-width: $breakpoint-xl) {
+@media screen and (min-width: $breakpoint-xxl) {
   .container__app {
     padding-inline: 100px;
   }

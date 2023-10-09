@@ -1,5 +1,5 @@
 interface ButtonProps {
-  children: string;
+  children: string | undefined;
   onClick?: any;
   className?: string;
 }

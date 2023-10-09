@@ -1,0 +1,80 @@
+.searchsection {
+  position: relative;
+
+  .searchsection__form {
+    background-image: url("../../assets/bg-boost-mobile.svg");
+    background-color: $dark-violet;
+  }
+
+  .searchsection__input {
+    width: 100%;
+    font-size: 18px;
+  }
+
+  .searchsection__btn {
+    width: 100%;
+    border-radius: 5px;
+    font-weight: 700;
+  }
+
+  .searchsection__advancedtitle {
+    font-weight: 700;
+    font-size: 30px;
+    color: $dark-violet;
+  }
+
+  .searchsection__advanceddesc {
+    color: $grayish-violet;
+    font-size: 18px;
+    max-width: 525px;
+  }
+
+  .searchsection__content {
+    background-color: $color-1;
+    margin-top: -80px;
+    padding-top: 150px;
+  }
+}
+
+@media screen and (min-width: $breakpoint-md) {
+  .searchsection {
+    .searchsection__cardstatistic {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .searchsection__advancedcontent {
+      margin-bottom: 90px;
+    }
+  }
+}
+
+@media screen and (min-width: $breakpoint-lg) {
+  .searchsection {
+    .searchsection__input {
+      width: 80%;
+      margin-right: 40px;
+    }
+
+    .searchsection__form {
+      display: flex;
+    }
+
+    .searchsection__btn {
+      width: 20%;
+    }
+  }
+}
+
+@media screen and (min-width: $breakpoint-xl) {
+  .searchsection {
+    .searchsection__cardstatistic {
+      flex-wrap: nowrap;
+    }
+
+    .searchsection__advancedcontent {
+      margin-bottom: 0;
+    }
+  }
+}
