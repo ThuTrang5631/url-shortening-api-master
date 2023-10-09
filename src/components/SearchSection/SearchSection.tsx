@@ -33,7 +33,10 @@ interface DataProps {
 const SearchSection = () => {
   const [url, setUrl] = useState<string>("");
   const [error, setError] = useState<string>("");
-  const [listAfterShorten, setListAfterShorten] = useState<DataProps[]>([]);
+  const dataCache = sessionStorage.getItem("value");
+  const [listAfterShorten, setListAfterShorten] = useState<DataProps[]>(
+    JSON.parse(dataCache!) ? JSON.parse(dataCache!) : []
+  );
 
   const handleClick = async (e: any) => {
     e.preventDefault();
@@ -59,7 +62,9 @@ const SearchSection = () => {
     }
   };
 
-  console.log("list", listAfterShorten);
+  sessionStorage.setItem("value", JSON.stringify(listAfterShorten));
+
+  // console.log("sessionget", sessionStorage.getItem("value"));
 
   return (
     <section className="searchsection">
