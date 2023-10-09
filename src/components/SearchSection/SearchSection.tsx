@@ -4,6 +4,8 @@ import CardStatistic from "../CardStatistic";
 import iconBrandRecognition from "../../assets/icon-brand-recognition.svg";
 import iconDetailedRecords from "../../assets/icon-detailed-records.svg";
 import iconFullyCustomizable from "../../assets/icon-fully-customizable.svg";
+import { useState } from "react";
+import { shortenUrl } from "../../utils/api";
 
 const data = [
   {
@@ -23,21 +25,76 @@ const data = [
   },
 ];
 
+interface DataProps {
+  originalLink: string;
+  fullShortLink: string;
+}
+
 const SearchSection = () => {
+  const [url, setUrl] = useState<string>("");
+  const [error, setError] = useState<string>("");
+  const [listAfterShorten, setListAfterShorten] = useState<DataProps[]>([]);
+
+  const handleClick = async (e: any) => {
+    e.preventDefault();
+
+    if (url === "") {
+      setError("Please add a link");
+    } else {
+      setError("");
+      try {
+        const res = await shortenUrl(url);
+        const data = res.data;
+        console.log("res", data.result.full_short_link);
+        setListAfterShorten([
+          ...listAfterShorten,
+          {
+            originalLink: data.result.original_link,
+            fullShortLink: data.result.full_short_link,
+          },
+        ]);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  };
+
+  console.log("list", listAfterShorten);
+
   return (
     <section className="searchsection">
       <div className="flex flex-col w-full container__app">
         <form className="searchsection__form p-[20px] rounded-[8px] min-[992px]:p-[50px] ">
-          <input
-            className="searchsection__input p-[15px] mb-[20px] rounded-[5px] min-[992px]:mb-[0px]"
-            placeholder="Shorten a link here..."
-          ></input>
-          <Button className="searchsection__btn p-[15px]">Shorten It!</Button>
+          <div className="searchsection__wrapinput">
+            <input
+              className={`searchsection__input w-full p-[15px] mb-[20px] rounded-[5px] min-[992px]:mb-[0px] ${
+                error && "searchsection__errorinput"
+              }`}
+              placeholder="Shorten a link here..."
+              onChange={(e) => setUrl(e.target.value.trim())}
+            ></input>
+            {error && <p className="searchsection__error">{error}</p>}
+          </div>
+          <Button
+            className="searchsection__btn p-[15px]"
+            onClick={(e: any) => handleClick(e)}
+          >
+            Shorten It!
+          </Button>
         </form>
       </div>
       <div className="searchsection__content container__app pb-[80px]">
         <div className="searchsection__listresult">
-          {/* <SearchResultCard /> */}
+          {listAfterShorten.map((item, id) => {
+            return (
+              <SearchResultCard
+                key={id}
+                urlAfterCovert={item.fullShortLink}
+                urlToCovert={item.originalLink}
+                contentButton="Copy"
+              />
+            );
+          })}
         </div>
         <div className="searchsection__advanced">
           <div className="searchsection__advancedcontent flex flex-col items-center">

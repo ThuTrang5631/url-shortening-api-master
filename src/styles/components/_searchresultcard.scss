@@ -1,5 +1,10 @@
 .searchresultcard {
   background-color: $white;
+  margin-bottom: 15px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 
   .searchresultcard__url {
     font-size: 18px;
