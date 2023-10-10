@@ -6,6 +6,7 @@ import iconDetailedRecords from "../../assets/icon-detailed-records.svg";
 import iconFullyCustomizable from "../../assets/icon-fully-customizable.svg";
 import { useState } from "react";
 import { shortenUrl } from "../../utils/api";
+import { REGEX_URL } from "../../utils/constant";
 
 const data = [
   {
@@ -43,8 +44,9 @@ const SearchSection = () => {
 
     if (url === "") {
       setError("Please add a link");
+    } else if (!REGEX_URL.test(url)) {
+      setError("URL is invalid. Please enter link another");
     } else {
-      setError("");
       try {
         const res = await shortenUrl(url);
         const data = res.data;
@@ -56,8 +58,10 @@ const SearchSection = () => {
             fullShortLink: data.result.full_short_link,
           },
         ]);
+        setError("");
       } catch (error) {
         console.log(error);
+        setError("Please enter link another");
       }
     }
   };
@@ -79,6 +83,12 @@ const SearchSection = () => {
       e.target.classList.remove("copied");
       e.target.textContent = "Copy";
     }, 5000);
+  };
+
+  const handleClickDelete = (shortenUrlDelete: string) => {
+    setListAfterShorten(
+      listAfterShorten.filter((item) => item.fullShortLink !== shortenUrlDelete)
+    );
   };
 
   return (
@@ -113,6 +123,7 @@ const SearchSection = () => {
                 urlToCovert={item.originalLink}
                 contentButton="Copy"
                 onClick={(e: any) => handleClickCopy(item.fullShortLink, e)}
+                onClickDelete={() => handleClickDelete(item.fullShortLink)}
               />
             );
           })}

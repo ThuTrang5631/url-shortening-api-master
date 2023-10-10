@@ -6,6 +6,7 @@ interface SearchResultCardProps {
   contentButton?: string;
   onClick: any;
   className?: string;
+  onClickDelete: any;
 }
 
 const SearchResultCard = ({
@@ -14,9 +15,13 @@ const SearchResultCard = ({
   contentButton,
   onClick,
   className,
+  onClickDelete,
 }: SearchResultCardProps) => {
   return (
     <div className="searchresultcard py-[10px] rounded-[5px]">
+      <Button onClick={onClickDelete} className="searchresultcard__delete">
+        <span>x</span>
+      </Button>
       <p className="searchresultcard__url px-[10px] py-[5px]">{urlToCovert}</p>
       <div className="searchresultcard__containurlresult px-[10px]">
         <p className="searchresultcard__urlresult">{urlAfterCovert}</p>

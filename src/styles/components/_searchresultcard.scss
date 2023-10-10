@@ -1,6 +1,7 @@
 .searchresultcard {
   background-color: $white;
   margin-bottom: 15px;
+  position: relative;
 
   &:last-child {
     margin-bottom: 0;
@@ -32,6 +33,21 @@
 
   .copied {
     background-color: $dark-violet;
+  }
+
+  .searchresultcard__delete {
+    background-color: $cyan;
+    color: $white;
+    width: 20px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 50%;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: -7px;
+    top: -7px;
+    justify-content: center;
   }
 }
 

@@ -1,5 +1,5 @@
 interface ButtonProps {
-  children: string | undefined;
+  children: string | React.ReactElement | undefined;
   onClick?: any;
   className?: string;
 }
