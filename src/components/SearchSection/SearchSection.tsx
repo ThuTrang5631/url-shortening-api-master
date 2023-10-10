@@ -130,9 +130,9 @@ const SearchSection = () => {
         </div>
         <div className="searchsection__advanced">
           <div className="searchsection__advancedcontent flex flex-col items-center">
-            <h3 className="searchsection__advancedtitle mb-[20px] text-center">
+            <h2 className="searchsection__advancedtitle mb-[20px] text-center">
               Advanced Statistics
-            </h3>
+            </h2>
             <p className="searchsection__advanceddesc text-center">
               Track how your links are performing across the web with our
               advanced statistics dashboard.
