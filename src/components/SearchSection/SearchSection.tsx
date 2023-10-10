@@ -95,9 +95,9 @@ const SearchSection = () => {
     <section className="searchsection">
       <div className="flex flex-col w-full container__app">
         <form className="searchsection__form p-[20px] rounded-[8px] min-[992px]:p-[50px] ">
-          <div className="searchsection__wrapinput">
+          <div className="searchsection__wrapinput mb-[20px] min-[992px]:mb-[0px]">
             <input
-              className={`searchsection__input w-full p-[15px] mb-[20px] rounded-[5px] min-[992px]:mb-[0px] ${
+              className={`searchsection__input w-full p-[15px] rounded-[5px] min-[992px]:mb-[0px] ${
                 error && "searchsection__errorinput"
               }`}
               placeholder="Shorten a link here..."

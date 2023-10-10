@@ -4,6 +4,8 @@
   .searchsection__form {
     background-image: url("../../assets/bg-boost-mobile.svg");
     background-color: $dark-violet;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 
   .searchsection__input {
@@ -82,6 +84,7 @@
 
     .searchsection__form {
       display: flex;
+      background-image: url("../../assets/bg-shorten-desktop.svg");
     }
 
     .searchsection__btn {
