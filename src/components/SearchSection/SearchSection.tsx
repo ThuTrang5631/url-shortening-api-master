@@ -38,7 +38,7 @@ const SearchSection = () => {
     JSON.parse(dataCache!) ? JSON.parse(dataCache!) : []
   );
 
-  const handleClick = async (e: any) => {
+  const handleClickShorten = async (e: any) => {
     e.preventDefault();
 
     if (url === "") {
@@ -64,7 +64,22 @@ const SearchSection = () => {
 
   sessionStorage.setItem("value", JSON.stringify(listAfterShorten));
 
-  // console.log("sessionget", sessionStorage.getItem("value"));
+  const handleClickCopy = async (urlCopy: string, e: any) => {
+    console.log("url", urlCopy);
+    try {
+      await navigator.clipboard.writeText(urlCopy);
+      console.log("suceess");
+      e.target.textContent = "Copied!";
+      e.target.classList.add("copied");
+    } catch (error) {
+      console.log(error);
+    }
+
+    setTimeout(() => {
+      e.target.classList.remove("copied");
+      e.target.textContent = "Copy";
+    }, 5000);
+  };
 
   return (
     <section className="searchsection">
@@ -82,7 +97,7 @@ const SearchSection = () => {
           </div>
           <Button
             className="searchsection__btn p-[15px]"
-            onClick={(e: any) => handleClick(e)}
+            onClick={(e: any) => handleClickShorten(e)}
           >
             Shorten It!
           </Button>
@@ -90,13 +105,14 @@ const SearchSection = () => {
       </div>
       <div className="searchsection__content container__app pb-[80px]">
         <div className="searchsection__listresult">
-          {listAfterShorten.map((item, id) => {
+          {listAfterShorten.map((item, index) => {
             return (
               <SearchResultCard
-                key={id}
+                key={index}
                 urlAfterCovert={item.fullShortLink}
                 urlToCovert={item.originalLink}
                 contentButton="Copy"
+                onClick={(e: any) => handleClickCopy(item.fullShortLink, e)}
               />
             );
           })}

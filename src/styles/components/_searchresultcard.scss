@@ -29,13 +29,17 @@
     width: 100%;
     border-radius: 5px;
   }
+
+  .copied {
+    background-color: $dark-violet;
+  }
 }
 
 @media screen and (min-width: $breakpoint-lg) {
   .searchresultcard {
     display: flex;
     justify-content: space-between;
-    padding: 10px 30px;
+    padding: 15px 30px;
     align-items: center;
 
     .searchresultcard__containurlresult {
@@ -50,7 +54,7 @@
       border-bottom: none;
       padding: 0;
       margin-bottom: 0;
-      width: 40%;
+      width: 65%;
     }
 
     .searchresultcard__btn {
