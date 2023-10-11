@@ -1,12 +1,31 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import logo from "../../assets/logo.svg";
 import Button from "../Button";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState<Boolean>(false);
+  const [boxShadowHeader, setBoxShadowHeader] = useState<string>("");
+
+  const handleBoxshadowWhenScroll = () => {
+    if (window.pageYOffset === 0) {
+      setBoxShadowHeader("");
+    } else {
+      setBoxShadowHeader("boxshadowheader");
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleBoxshadowWhenScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleBoxshadowWhenScroll);
+    };
+  }, []);
 
   return (
-    <div className="container__header pt-[40px] container__app mb-[10px] min-[768px]:mb-[50px]">
+    <div
+      className={`container__header py-[30px] container__app ${boxShadowHeader}`}
+    >
       <header className="header flex items-center">
         <a href="#" className="header__company">
           <img src={logo} alt="logo"></img>

@@ -1,5 +1,9 @@
 .container__header {
-  position: relative;
+  position: fixed;
+  width: 100%;
+  z-index: 99;
+  background-color: $white;
+
   .header {
     justify-content: space-between;
 
@@ -33,6 +37,10 @@
   .header__contentleft {
     display: none;
   }
+}
+
+.boxshadowheader {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 @media screen and (min-width: $breakpoint-md) {
