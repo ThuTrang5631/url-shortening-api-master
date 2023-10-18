@@ -20,7 +20,7 @@ function App() {
   const toggleVisibility = () => {
     const currentScrollPos = window.pageYOffset;
 
-    // Button is displayed after scrolling for 500 pixels
+    // Button is displayed after scrolling for 300 pixels
     if (currentScrollPos > 300 && currentScrollPos > prevScrollPos.current) {
       setIsVisible(true);
     } else {
@@ -41,7 +41,6 @@ function App() {
       <Header />
       <main>
         <Banner />
-        {/* <CardStatistic /> */}
         <SearchSection />
         <SubBanner />
       </main>
