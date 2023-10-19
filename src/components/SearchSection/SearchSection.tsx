@@ -50,12 +50,12 @@ const SearchSection = () => {
       try {
         const res = await shortenUrl(url);
         const data = res.data;
-        console.log("res", data.result.full_short_link);
+        console.log("res", data);
         setListAfterShorten([
           ...listAfterShorten,
           {
-            originalLink: data.result.original_link,
-            fullShortLink: data.result.full_short_link,
+            originalLink: data.long_url,
+            fullShortLink: data.short_url,
           },
         ]);
         setError("");
