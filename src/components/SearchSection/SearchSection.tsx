@@ -58,6 +58,7 @@ const SearchSection = () => {
             fullShortLink: data.short_url,
           },
         ]);
+
         setError("");
       } catch (error) {
         console.log(error);
@@ -69,10 +70,9 @@ const SearchSection = () => {
   sessionStorage.setItem("value", JSON.stringify(listAfterShorten));
 
   const handleClickCopy = async (urlCopy: string, e: any) => {
-    console.log("url", urlCopy);
+    console.log("urlCopy", urlCopy);
     try {
       await navigator.clipboard.writeText(urlCopy);
-      console.log("suceess");
       e.target.textContent = "Copied!";
       e.target.classList.add("copied");
     } catch (error) {
@@ -90,6 +90,8 @@ const SearchSection = () => {
       listAfterShorten.filter((item) => item.fullShortLink !== shortenUrlDelete)
     );
   };
+
+  console.log("listaftershorten", listAfterShorten);
 
   return (
     <section className="searchsection">
